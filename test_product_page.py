@@ -15,3 +15,4 @@ def test_guest_can_add_product_to_cart(browser, link):
     page = ProductPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
     page.open()                      # открываем страницу
     page.should_add_to_cart()
+
