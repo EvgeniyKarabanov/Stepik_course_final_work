@@ -1,9 +1,6 @@
-import time
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
 import math
-
 
 class ProductPage(BasePage):
     def should_add_to_cart(self):
@@ -11,10 +8,9 @@ class ProductPage(BasePage):
         add_to_basket = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_TO_CART)
         add_to_basket.click()
         #self.solve_quiz_and_get_code()
-        #self.should_be_message_add_to_basket()
-        #self.should_be_add_this_book(self.find_element(*ProductPageLocators.NAME_BOOK))
-        #self.should_be_add_true_price(self.find_element(*ProductPageLocators.PRICE_BOOK))
-        #time.sleep(500)
+        self.should_be_message_add_to_basket()
+        self.should_be_add_this_book(self.find_element(*ProductPageLocators.NAME_BOOK))
+        self.should_be_add_true_price(self.find_element(*ProductPageLocators.PRICE_BOOK))
 
     def should_be_button_add_to_cart(self):
         assert self.is_element_present(*ProductPageLocators.BUTTON_ADD_TO_CART), "Button 'add to basket' is not presented"
